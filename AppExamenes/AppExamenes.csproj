@@ -43,6 +43,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Pages\Travolta.gif" />
     <None Include="External Content Types\ExamenesECT\Alumno.ect" />
     <None Include="External Content Types\ExamenesECT\AlumnoAsignatura.ect" />
     <None Include="External Content Types\ExamenesECT\AlumnoAsignatura\SharePointProjectItem.spdata">
@@ -62,12 +63,16 @@
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{14a080b1-0602-49ea-8ec1-d188fee6f053}</SharePointProjectItemId>
     </None>
+    <Content Include="Elements.xml" />
     <Content Include="External Content Types\Elements.xml" />
     <Content Include="External Content Types\ExamenesECT\AlumnoAsignatura\Elements.xml" />
     <Content Include="External Content Types\ExamenesECT\Alumno\Elements.xml" />
     <Content Include="External Content Types\ExamenesECT\Asignatura\Elements.xml" />
     <Content Include="Pages\Elements.xml" />
     <Content Include="Pages\Default.aspx" />
+    <None Include="SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{db2a2508-141a-423e-91cd-a1353fcd52a5}</SharePointProjectItemId>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\jquery-1.9.1.min.map" />

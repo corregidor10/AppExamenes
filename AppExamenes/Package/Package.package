@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="ef2b4418-fc0c-491f-af90-3862edc5a37c" 
+        solutionId="ef2b4418-fc0c-491f-af90-3862edc5a37c" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="AppExamenes"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="babc6e80-e989-4c9a-975b-581fb23b9d88" />
+  </features>
+</package>

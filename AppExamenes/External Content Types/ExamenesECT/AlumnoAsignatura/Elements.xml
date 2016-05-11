@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Url="Lists/AlumnoAsignatura" Description="AlumnoAsignatura" OnQuickLaunch="TRUE" Title="AlumnoAsignatura">
+    <DataSource>
+      <Property Name="LobSystemInstance" Value="ExamenesECT" />
+      <Property Name="EntityNamespace" Value="examenesModel" />
+      <Property Name="Entity" Value="AlumnoAsignatura" />
+      <Property Name="SpecificFinder" Value="ReadSpecificAlumnoAsignatura" />
+      <Property Name="MetadataCatalogFileName" Value="BDCMetadata.bdcm" />
+    </DataSource>
+  </ListInstance>
+</Elements>

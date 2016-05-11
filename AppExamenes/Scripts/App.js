@@ -62,17 +62,17 @@ function getAlumno() {
             break;
 
         case "AlumnoAsignatura":
-
+            
             busqueda = parseInt(busqueda);
 
-            requestUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('AlumnoAsignatura')/items?$filter=nota gt " + busqueda;
+            requestUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('AlumnoAsignatura')/items?$filter=nota gt " +busqueda;
 
             $.ajax({
                 type: "GET",
                 url: requestUrl,
                 contentType: "application/json",
                 headers: {
-                    "accept": "application/json;odata=verbose",
+                    "accept": "application/json;odata=verbose"
                 },
                 success: onReturnDataNota,
                 error: function (xhr) {
@@ -165,15 +165,15 @@ function onReturnDataNota(data) {
     var oDataResult = data.d.results;
 
     var tableHeader = "<thead>" +
-                       "<td>Alumno</td>" +
-                       "<td>Examen</td>" +
+                       "<td>iAlumno</td>" +
+                       "<td>idExamen</td>" +
                         "<td>Nota</td>" +
                        "</thead>";
 
     var table = $("<table>", { id: "alumnosTable" }).append($(tableHeader));
 
     $.each(oDataResult,function (i, item) {
-            var row = "<tr>" + "<td>" + item.nombre + "</td>" + "<td>" + item.nombreMateria + "</td>" + "<td>" + item.nota + "</td></tr>";
+            var row = "<tr>" + "<td>" + item.idAlumno + "</td>" + "<td>" + item.idMateria + "</td>" + "<td>" + item.nota + "</td></tr>";
 
             table.append(row);
 

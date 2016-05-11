@@ -9,7 +9,7 @@
 <%-- The markup and script in the following Content element will be placed in the <head> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script type="text/javascript" src="../Scripts/jquery-1.9.1.min.js"></script>
-       <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
     <script type="text/javascript" src="/_layouts/15/sp.js"></script>
 
     <meta name="WebPartPageExpansion" content="full" />
@@ -29,10 +29,27 @@
 <%-- The markup and script in the following Content element will be placed in the <body> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
 
-    
-        <input type="text" id="txtBus" placeholder="Valor de busqueda"/> <br/>
-        <input type="button" id="btnBus" value="Dale"/><br/><br/>
-    
-    <div id="resultado" style="min-width: 500px; min-height: 500px; color: lightsalmon"></div>
+
+    <%--        <input type="text" id="txtBus" placeholder="Valor de busqueda"/> <br/>
+        <input type="button" id="btnBus" value="Dale"/><br/><br/>--%>
+
+    <label for="criterioBusqueda">Como quiere realizar la busqueda? </label>
+    <br />
+    <span>
+        <input type="radio" name="criterioBusqueda" value="Alumno">
+        Alumno </span>
+    <span>
+        <input type="radio" name="criterioBusqueda" value="Asignatura">
+        Asignatura </span>
+    <span>
+        <input type="radio" name="criterioBusqueda" value="AlumnoAsignatura">
+        Nota </span>
+    <br />
+    <input type="text" id="txtBus" placeholder="Valor de busqueda" />
+    <br />
+    <input type="button" id="btnBus" value="Dale" /><br />
+    <br />
+
+    <div id="resultado" style="min-width: 500px; min-height: 500px; background-color: lightcyan; color: darkblue"></div>
 
 </asp:Content>

@@ -1,10 +1,15 @@
 ﻿'use strict';
 
+var nombre;
+
+var examen;
+
 function getAlumno() {
 
     var busqueda = $("#txtBus").val();
     var checkValue = "nada";
     var requestUrl;
+  
 
     var radiobutton = document.getElementsByName("criterioBusqueda");
 
@@ -167,15 +172,56 @@ function onReturnDataNota(data) {
 
     if (oDataResult.length>0) {
         var tableHeader = "<thead>" +
-                      "<td>idAlumno</td>" +
-                      "<td>idExamen</td>" +
+                      "<td>Nombre </td>" +
+                      "<td>Examen</td>" +
                        "<td>Nota</td>" +
                       "</thead>";
 
         var table = $("<table>", { id: "alumnosTable" }).append($(tableHeader));
 
-        $.each(oDataResult, function (i, item) {
-            var row = "<tr>" + "<td>" + item.idAlumno + "</td>" + "<td>" + item.idMateria + "</td>" + "<td>" + item.nota + "</td></tr>";
+        $.each
+            (oDataResult, function (i, item) {
+
+
+
+           var otraRequest = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('Alumno')/items?$filter=idAlumno eq '" + item.idAlumno + "'";
+
+            $.ajax({
+                type: "GET",
+                url: otraRequest,
+                contentType: "application/json",
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                },
+                success: onReturnNombreAlumno,
+                error: function (xhr) {
+                    alert(xhr.status);
+                },
+                async:false
+            });
+
+            var otraRequestMore = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('Asignatura')/items?$filter=idMateria eq '" + item.idMateria + "'";
+
+            $.ajax({
+                type: "GET",
+                url: otraRequestMore,
+                contentType: "application/json",
+                headers: {
+                    "accept": "application/json;odata=verbose",
+                },
+                success: onReturnExamen,
+                error: function (xhr) {
+                    alert(xhr.status);
+                },
+                async: false
+            });
+
+            
+
+          
+
+
+           var row = "<tr>" + "<td>" + nombre + "</td>" + "<td>" + examen + "</td>" + "<td>" + item.nota + "</td></tr>";
 
             table.append(row);
 
@@ -189,6 +235,36 @@ function onReturnDataNota(data) {
 
 
 }
+
+function onReturnNombreAlumno(dato) {
+    
+    var oDataResult = dato.d.results;
+
+   $.each(oDataResult,
+            function (i, item) {
+
+                nombre = item.nombre;
+
+                return nombre;
+
+            });
+}
+
+function onReturnExamen(datu) {
+
+    var oDatuResult = datu.d.results;
+
+    $.each(oDatuResult,
+             function (i, item) {
+
+                 examen = item.nombreMateria;
+
+                 return examen;
+
+             });
+}
+
+
 
 $(document).ready(function () {
     $("#btnBus").click(getAlumno);
